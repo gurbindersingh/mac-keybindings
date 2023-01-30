@@ -1,9 +1,16 @@
-﻿;==============================================================================
-; Mac style key bindings
-;==============================================================================
+﻿; ##############################################################################
+; ########################### Mac style key bindings ###########################
+; ##############################################################################
 
+; =============================================================================
+; Global variables
+; =============================================================================
+WindowSwitching := False
 OriginalSize := Map()
 
+; =============================================================================
+; Functions
+; =============================================================================
 RestoreWindow(WinTitle){
   KeyOfWindow := WinExist(WinTitle)
   
@@ -43,12 +50,15 @@ AlmostMaximize(WinTitle) {
 }
 
 
-; NOTE: Always write the hotkeys at the end. Otherwise, global variables will not be initialized. For details see: https://www.autohotkey.com/docs/v1/Scripts.htm#auto.
+; NOTE: Always write the hotkeys at the end. Otherwise, global variables will not be 
+; initialized. For details see: https://www.autohotkey.com/docs/v1/Scripts.htm#auto.
 
+; =============================================================================
 ; Characters remappings
+; =============================================================================
 ; There is no way to disable Win+L, so instead it's just Alt/AltGr+L for @
 ; !l::@ ; this conflicts with the Reformat Code command in VS Code
-<^>!l::@
+>^l::@
 
 #n::Send "~"
 #5::Send "["
@@ -58,24 +68,37 @@ AlmostMaximize(WinTitle) {
 ; #8::Send "{"
 ; #9::Send "}" 
 
-
-; Map most commonly used shortcuts like copy, paste, cut, from Ctrl+KEY to Alt/AltGr+KEY
+; =============================================================================
+; Basic shortcuts like copy, paste, cut, etc
+; =============================================================================
 !a::^a
 !c::^c
+!f::^f
+!n::^n
+!r::^r
 !s::^s
 !t::^t
 !v::^v
 !w::^w
 !x::^x
 !z::^z
+!+p::^+p
+; Hotkeys using AltGr
+<^>!a::^a
 <^>!c::^c
-<^>!v::^v
-<^>!x::^x
+<^>!f::^f
+<^>!n::^n
+<^>!r::^r
 <^>!s::^s
+<^>!t::^t
+<^>!v::^v
+<^>!w::^w
+<^>!x::^x
 <^>!z::^z
 
-
-
+; =============================================================================
+; Window Management
+; =============================================================================
 ; Alt+q to close the active window
 !q::WinClose "A"
 <^>!q::WinClose "A"
@@ -85,9 +108,21 @@ AlmostMaximize(WinTitle) {
 ; Ctrl+Alt+F to toggle full screen
 ^!f::F11
 
-
 ; Rectanlge keybindings
 ^#Enter::WinMaximize "A"
 ^#Backspace::RestoreWindow("A")
 ^#c::CenterWindow("A")
 ^#b::AlmostMaximize("A")
+
+; =============================================================================
+; Detect keys to override certain hotkeys
+; =============================================================================
+; The following two keys are used to detect when we are using Alt+Tab
+~!Tab::{
+  global WindowSwitching
+  WindowSwitching := True
+}
+~Alt Up::{
+  global WindowSwitching
+  WindowSwitching := False
+}
