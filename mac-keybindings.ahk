@@ -103,6 +103,8 @@ AlmostMaximize(WinTitle) {
 #+Right::^+Right
 #+Up::^+Up
 #+Down::^+Down
+#Up::Return
+#Down::Return
 
 ; Conditional hotkeys
 #HotIf !WindowSwitching
