@@ -13,7 +13,7 @@ OriginalSize := Map()
 ; =============================================================================
 RestoreWindow(WinTitle){
   KeyOfWindow := WinExist(WinTitle)
-  
+
   if(OriginalSize.Count > 0 && OriginalSize.Has(KeyOfWindow)) {
     ; Manually restore the window size
     PosSize := OriginalSize.Delete(WinActive(WinTitle))
@@ -25,13 +25,13 @@ RestoreWindow(WinTitle){
 
 CenterWindow(WinTitle) {
   global OriginalSize
-  
+
   WinGetPos &PosX, &PosY, &Width, &Height, WinTitle
   OriginalSize[WinActive(WinTitle)] := [PosX, PosY, Width, Height]
-  
-  OffsetY := -15  ; The height of the task bar is 30 px 
+
+  OffsetY := -15 ; The height of the task bar is 30 px 
   OffsetX := 0
-  
+
   WinMove (A_ScreenWidth/2)-(Width/2)+OffsetX, (A_ScreenHeight/2)-(Height/2)+OffsetY,,, WinTitle
 }
 
@@ -43,12 +43,11 @@ AlmostMaximize(WinTitle) {
 
   Width := A_ScreenWidth * 0.9
   Height := A_ScreenHeight * 0.9
-  OffsetY := -15  ; The height of the task bar is 30 px 
+  OffsetY := -15 ; The height of the task bar is 30 px 
   OffsetX := 0
-  
+
   WinMove (A_ScreenWidth/2)-(Width/2)+OffsetX, (A_ScreenHeight/2)-(Height/2)+OffsetY, Width, Height, WinTitle
 }
-
 
 ; NOTE: Always write the hotkeys at the end. Otherwise, global variables will not be 
 ; initialized. For details see: https://www.autohotkey.com/docs/v1/Scripts.htm#auto.
@@ -75,6 +74,7 @@ AlmostMaximize(WinTitle) {
 !c::^c
 !f::^f
 !n::^n
+!p::^p
 !r::^r
 !s::^s
 !t::^t
@@ -88,6 +88,7 @@ AlmostMaximize(WinTitle) {
 <^>!c::^c
 <^>!f::^f
 <^>!n::^n
+<^>!p::^p
 <^>!r::^r
 <^>!s::^s
 <^>!t::^t
@@ -95,6 +96,28 @@ AlmostMaximize(WinTitle) {
 <^>!w::^w
 <^>!x::^x
 <^>!z::^z
+
+; No second hotkey necessary, RCtrl+Backspace already does what it's supposed to
+#BackSpace::^BackSpace
+#+Left::^+Left
+#+Right::^+Right
+#+Up::^+Up
+#+Down::^+Down
+
+; Conditional hotkeys
+#HotIf !WindowSwitching
+; Only allow these when not window switching, otherwise navigation in the 
+; Alt+Tab menu using arrow keys does not work.
+!Left::Home
+!Right::End
+<^>!Left::Home
+<^>!Right::End
+#HotIf
+
+#HotIf WinActive("Firefox")
+!l::^l
+<^>!l::^l
+#HotIf
 
 ; =============================================================================
 ; Window Management
