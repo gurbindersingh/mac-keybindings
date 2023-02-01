@@ -83,6 +83,7 @@ AlmostMaximize(WinTitle) {
 !x::^x
 !z::^z
 !+p::^+p
+!Enter::^Enter
 ; Hotkeys using AltGr
 <^>!a::^a
 <^>!c::^c
@@ -96,6 +97,7 @@ AlmostMaximize(WinTitle) {
 <^>!w::^w
 <^>!x::^x
 <^>!z::^z
+<^>!Enter::^Enter
 
 ; No second hotkey necessary, RCtrl+Backspace already does what it's supposed to
 #BackSpace::^BackSpace
