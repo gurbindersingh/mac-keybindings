@@ -128,7 +128,8 @@ AlmostMaximize(WinTitle) {
 ; =============================================================================
 ; Alt+q to close the active window
 !q::WinClose "A"
-<^>!q::WinClose "A"
+; <^>!q::WinClose "A"
+<^>!q::Return ;disable AltGr+Q for quitting to prevent accidents
 ; Alt+M/H to minimize the active window
 !m:: WinMinimize "A"
 !h:: WinMinimize "A"
