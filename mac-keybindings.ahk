@@ -67,7 +67,7 @@ AlmostMaximize(WinTitle) {
 ; #9::Send "}" 
 
 ; =============================================================================
-; Basic shortcuts like copy, paste, cut, etc
+; Shortcut remappings
 ; =============================================================================
 !a::^a
 !c::^c
@@ -98,19 +98,22 @@ AlmostMaximize(WinTitle) {
 <^>!z::^z
 <^>!Enter::^Enter
 
-; No second hotkey necessary, RCtrl+Backspace already does what it's supposed to
 #BackSpace::^BackSpace
-#+Left::^+Left
-#+Right::^+Right
+
 #+Up::^+Up
 #+Down::^+Down
-#Up::Return
-#Down::Return
+#+Left::^+Left
+#+Right::^+Right
+
+#Up::!Up
+#Down::!Down
 
 ; Conditional hotkeys
 #HotIf !WindowSwitching
 ; Only allow these when not window switching, otherwise navigation in the 
 ; Alt+Tab menu using arrow keys does not work.
+!Up::Return
+!Down::Return
 !Left::Home
 !Right::End
 <^>!Left::Home
