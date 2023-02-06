@@ -55,8 +55,7 @@ AlmostMaximize(WinTitle) {
 ; =============================================================================
 ; Characters remappings
 ; =============================================================================
-; There is no way to disable Win+L, so instead it's just Alt/AltGr+L for @
-; !l::@ ; this conflicts with the Reformat Code command in VS Code
+; There is no way to disable Win+L, so instead it's just RCtrl+L for @
 >^l::@
 
 #n::Send "~"
@@ -128,11 +127,14 @@ AlmostMaximize(WinTitle) {
 ; =============================================================================
 ; Alt+q to close the active window
 !q::WinClose "A"
+
 ; <^>!q::WinClose "A"
 <^>!q::Return ;disable AltGr+Q for quitting to prevent accidents
+
 ; Alt+M/H to minimize the active window
 !m:: WinMinimize "A"
 !h:: WinMinimize "A"
+
 ; Ctrl+Alt+F to toggle full screen
 ^!f::F11
 
