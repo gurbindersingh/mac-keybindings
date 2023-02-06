@@ -150,7 +150,8 @@ AlmostMaximize(WinTitle) {
 ; =============================================================================
 ; Detect keys to override certain hotkeys
 ; =============================================================================
-; The following two keys are used to detect when we are using Alt+Tab
+; The following two keys are used to detect when we are using Alt+Tab. The 
+; Tilde operator allows the keys to perform its normal function.
 ~!Tab::{
   global WindowSwitching
   WindowSwitching := True
