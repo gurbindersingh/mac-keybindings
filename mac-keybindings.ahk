@@ -108,6 +108,11 @@ AlmostMaximize(WinTitle) {
 #Up::!Up
 #Down::!Down
 
+^Left::Return
+^Right::Return
+#Left::^Left
+#Right::^Right
+
 ; Conditional hotkeys
 #HotIf !WindowSwitching
 ; Only allow these when not window switching, otherwise navigation in the 
