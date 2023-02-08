@@ -62,6 +62,11 @@ AlmostMaximize(WinTitle) {
 #5::Send "["
 #6::Send "]"
 #7::Send "|"
+
+>^n::Send "~"
+>^5::Send "["
+>^6::Send "]"
+>^7::Send "|"
 ; For the following two use Powertoys to remap the keys
 ; #8::Send "{"
 ; #9::Send "}" 
