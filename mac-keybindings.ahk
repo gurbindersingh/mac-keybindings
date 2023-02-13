@@ -107,8 +107,8 @@ AlmostMaximize(WinTitle) {
 
 #+Up::!+Up
 #+Down::!+Down
-#+Left::!+Left
-#+Right::!+Right
+#+Left::^+Left
+#+Right::^+Right
 
 #Up::!Up
 #Down::!Down
