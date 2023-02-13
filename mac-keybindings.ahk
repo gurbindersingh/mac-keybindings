@@ -105,14 +105,15 @@ AlmostMaximize(WinTitle) {
 
 #BackSpace::^BackSpace
 
-#+Up::^+Up
-#+Down::^+Down
-#+Left::^+Left
-#+Right::^+Right
+#+Up::!+Up
+#+Down::!+Down
+#+Left::!+Left
+#+Right::!+Right
 
 #Up::!Up
 #Down::!Down
 
+; ^a::Return
 ^Left::Return
 ^Right::Return
 #Left::^Left
