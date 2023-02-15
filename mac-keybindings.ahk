@@ -134,6 +134,7 @@ AlmostMaximize(WinTitle) {
 #HotIf WinActive("Firefox")
 !l::^l
 <^>!l::^l
+#!i::^+i
 #HotIf
 
 ; =============================================================================
