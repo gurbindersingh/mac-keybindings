@@ -38,8 +38,16 @@ CenterWindow(WinTitle) {
 AlmostMaximize(WinTitle) {
   global OriginalSize
 
-  WinGetPos &PosX, &PosY, &Width, &Height, WinTitle
-  OriginalSize[WinActive(WinTitle)] := [PosX, PosY, Width, Height]
+  IsMinimized := -1
+  IsMaximized := 1
+  WindowState := WinGetMinMax(WinTitle)
+
+  if(WindowState == IsMaximized) {
+    WinRestore WinTitle
+  } else {
+    WinGetPos &PosX, &PosY, &Width, &Height, WinTitle
+    OriginalSize[WinActive(WinTitle)] := [PosX, PosY, Width, Height]
+  }
 
   Width := A_ScreenWidth * 0.9
   Height := A_ScreenHeight * 0.9
