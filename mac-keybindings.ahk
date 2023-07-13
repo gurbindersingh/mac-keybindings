@@ -78,10 +78,15 @@ AlmostMaximize(WinTitle) {
 ; For the following two use Powertoys to remap the keys
 ; #8::Send "{"
 ; #9::Send "}" 
+<^>!7::Return
+<^>!0::Return
+<^>!8::Return
+<^>!9::Return
 
 ; =============================================================================
 ; Shortcut remappings
 ; =============================================================================
+; Hotkey using Alt
 !a::^a
 !c::^c
 !f::^f
