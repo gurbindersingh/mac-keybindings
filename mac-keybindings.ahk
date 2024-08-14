@@ -154,7 +154,7 @@ AlmostMaximize(WinTitle) {
 ; Window Management
 ; =============================================================================
 ; Alt+q to close the active window
-!q::WinClose "A"
+!+w::WinClose "A"
 
 ; <^>!q::WinClose "A"
 <^>!q::Return ;disable AltGr+Q for quitting to prevent accidents
